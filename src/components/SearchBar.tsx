@@ -12,7 +12,6 @@ interface DropDownProps {
 export default function SearchBar() {
   const [selected, setSelected] = useState("All");
   const [options, setOptions] = useState<string[]>([]);
-  const [search, setSearch] = useState("");
 
   const debouncedSearch = useCallback((search: string) => {
     debounce(() => {
@@ -21,7 +20,6 @@ export default function SearchBar() {
   }, []);
 
   const handleSearch = (search: string) => {
-    setSearch(search);
     debouncedSearch(search);
   };
 
